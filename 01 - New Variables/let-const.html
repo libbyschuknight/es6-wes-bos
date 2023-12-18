@@ -6,16 +6,21 @@
 </head>
 <body>
 <script>
-  const key = 'abc123';
-  let points = 50;
-  let winner = false;
+  const key = 'abc123'; // can't be updated
+  let points = 50; // can be updated
+  let winner = false; // scoped to the window, global scope
 
+  if(points > 40) {
+    let winner = true; // scoped to the if statement, block scope
+  }
+
+  // the properties of a const variable can be updated
   const person = {
     name: 'Wes',
     age: 28
   }
 
-  const wes = Object.freeze(person);
+  const wes = Object.freeze(person); // if want to freeze the object, can't be updated
 
 </script>
 </body>

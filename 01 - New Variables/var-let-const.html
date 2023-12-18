@@ -6,18 +6,26 @@
 </head>
 <body>
 <script>
+  // var is scope - function scope or global scope
+
   function setWidth() {
-    var width = 100;
+    var width = 100; // scope - function scope, in function jail between the {}
     console.log(width);
   }
   setWidth();
 
   var age = 100;
+  // if(age > 12) {
+  //   var dogYears = age * 7; // scope - global scope
+  //   console.log(`You are ${dogYears} dog years old!`);
+  // }
+
   if(age > 12) {
-    const dogYears = age * 7;
+    const dogYears = age * 7; // scope - block scope
     console.log(`You are ${dogYears} dog years old!`);
   }
 
+  // let / const scoped to the block - open and closing brackets is a block
   let height = 200;
   const key = 'abc123';
 </script>

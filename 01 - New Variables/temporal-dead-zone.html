@@ -2,13 +2,30 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>let and const real world</title>
+  <title>Temporal dead zone</title>
 </head>
 <body>
 <script>
+  // console.log(pizza); // undefined
+  // var pizza = 'Deep Dish 🍕🍕🍕';
+
+
+  // Temporal dead zone - can't access a variable before it's been declared
+  // console.log(pizza); // ReferenceError: pizza is not defined
   console.log(pizza);
   const pizza = 'Deep Dish 🍕🍕🍕';
 
 </script>
 </body>
 </html>
+
+
+<!--
+  is var dead?
+  - use const by default
+  - only use let if rebinding is needed
+  - var shouldn't be used in ES6
+
+
+
+ -->

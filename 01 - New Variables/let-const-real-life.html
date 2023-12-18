@@ -6,10 +6,33 @@
 </head>
 <body>
 <script>
+
+  // IIFE - Immediately Invoked Function Expression
+  //  runs itself immediately
+  //  creates a new scope
+  //  can't be accessed from the outside
+  //  can't be updated
+
+  (function() {
+    var name = 'wes';
+    console.log(name);
+  })();
+
+
+  // Block scoping - let and const are block scoped
+  // don't need to use IIFE anymore
   {
     const name = 'wes';
     console.log(name);
   }
+
+  // for(var i = 0; i < 10; i++) {
+  //   console.log(i);
+  //   setTimeout(function() {
+  //     console.log('The number is ' + i);
+  //   },1000);
+  // }
+  // all were 10, after one second, entire loop has run, i = 10. when setTimeout runs, i is already 10
 
   for(let i = 0; i < 10; i++) {
     console.log(i);

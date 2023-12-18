@@ -16,19 +16,31 @@
     return `${name} bos`;
   });
 
+  // if only have one argument can get rid of extra parens
   const fullNames3 = names.map(name => {
     return `${name} bos`;
   });
 
+  // if only have one line can get rid of return and curly braces - implicit return
   const fullNames4 = names.map(name => `${name} bos`);
 
   const fullNames5 = names.map(() => `cool bos`);
 
+  // arrow functions are anonymous functions
+  // if use a arrow function you can't name them
+  // but you can assign them to a variable
+
+  // function declaration
   const sayMyName = (name) => {
     alert(`Hello ${name}!`)
   }
-
   sayMyName('Wes');
+
+  // vs named functions
+  function sayMyName2(name) {
+    alert(`Hello ${name}!`)
+  }
+  sayMyName2('Wes');
 
 </script>
 </body>
