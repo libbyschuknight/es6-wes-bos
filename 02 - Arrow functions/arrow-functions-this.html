@@ -61,6 +61,47 @@
   </div>
 
   <script>
+    // the this keyword does not get rebound inside of an arrow function
+    // it inherits the this keyword from the parent scope
+    // so if you use an arrow function inside of a method
+    // the this keyword will still point to the instance of the object
+    // that you are working with
+    // this is a great use case for arrow functions
+    // because you don't have to do any of that .bind(this) nonsense
+
+    const box = document.querySelector('.box');
+
+    // in this case don't want to use a arrow function
+    box.addEventListener('click', function() {
+      let first = 'opening';
+      let second = 'open';
+
+      if(this.classList.contains(first)) {
+        // switch them
+        [first, second] = [second, first];
+      }
+
+      this.classList.toggle(first);
+
+      // inherits this from the parent scope
+      setTimeout(() => {
+        this.classList.toggle(second);
+      }, 250);
+
+      // does not work!
+      // setTimeout(function() {
+      //   // this is undefined, as it is a new function, if not bound to anything it is bound to the window
+      //   this.classList.toggle('open');
+      // });
+    });
+
+    // // get window when click - this is inherited from parent scope, which is the window
+    // box.addEventListener('click', () => {
+    //   console.log(this);
+    // });
+
+
+
   </script>
 
 </body>
