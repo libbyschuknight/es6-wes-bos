@@ -71,6 +71,11 @@
 
     const box = document.querySelector('.box');
 
+    // // get window when click - this is inherited from parent scope, which is the window
+    // box.addEventListener('click', () => {
+    //   console.log(this);
+    // });
+
     // in this case don't want to use a arrow function
     box.addEventListener('click', function() {
       let first = 'opening';
@@ -83,7 +88,8 @@
 
       this.classList.toggle(first);
 
-      // inherits this from the parent scope
+      // have entered a new function, so this is now the window
+      // inherits this from the parent scope, does not change the value of this
       setTimeout(() => {
         this.classList.toggle(second);
       }, 250);
@@ -95,10 +101,7 @@
       // });
     });
 
-    // // get window when click - this is inherited from parent scope, which is the window
-    // box.addEventListener('click', () => {
-    //   console.log(this);
-    // });
+
 
 
 
