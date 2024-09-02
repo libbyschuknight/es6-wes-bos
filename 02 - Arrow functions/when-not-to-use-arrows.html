@@ -44,14 +44,14 @@
   };
 
   // When you need arguments object
+  // orderChildren("lynda", "lib", "chris")
   const orderChildren = function() {
-    const children = Array.from(arguments);
+    const children = Array.from(arguments); // arguments is not available in arrow functions, is a keyword
     return children.map((child, i) => {
       return `${child} was child #${i + 1}`;
     })
     console.log(arguments);
   }
-
 
 </script>
 </body>
