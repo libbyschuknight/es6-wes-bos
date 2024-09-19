@@ -32,14 +32,46 @@
 <script>
 
   // Select all the list items on the page and convert to array
+  // let listItems = Array.from(document.querySelectorAll('li'));
+  // console.log(listItems);
 
-  // Filter for only the elements that contain the word 'Flexbox'
+  let items = document.querySelectorAll('[data-time]');
+  // console.log(items);
+
+  listItems = items.filter(item => item.textContent.includes('Flexbox'));
+
+
+  const filtered = listItems
+    // Filter for only the elements that contain the word 'Flexbox'
+    .filter(item => item.textContent.includes('Flexbox'))
+    // map down to a list of time strings
+    .map(item => item.dataset.time)
+    // map to an array of seconds
+    .map(timeCode => {
+      const parts = timeCode.split(':').map(part => parseFloat(part))
+      return (parts[0] * 60) + parts[1];
+    })
+    .reduce((runningTotal, seconds) => runningTotal + seconds, 0);
+
+    console.log(filtered);
+
+
 
   // map down to a list of time strings
+  listItems = listItems.map(item => item.dataset.time);
+  // console.log(listItems);
 
   // map to an array of seconds
+  listItems = listItems.map(time => {
+    const parts = time.split(':').map(part => parseFloat(part));
+    return (parts[0] * 60) + parts[1];
+  });
+  // console.log(listItems);
+
 
   // reduce to get total
+  const totalSeconds = listItems.reduce((runningTotal, seconds) => runningTotal + seconds, 0);
+  // console.log(totalSeconds);
 
   // 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
 
