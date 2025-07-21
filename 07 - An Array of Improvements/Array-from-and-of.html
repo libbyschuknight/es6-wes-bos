@@ -11,22 +11,27 @@
     <p>Snickers</p>
   </div>
 <script>
+
+  // not on the propotype, but on the Array constructor
+  // Array.from() creates an array from an iterable or array-like object
+
   // const people = document.querySelectorAll('.people p');
   // const peopleArray = Array.from(people, person => {
-  //   console.log(person);
-  //   return person.textContent;
-  // });
-  // console.log(peopleArray);
+    //   console.log(person);
+    //   return person.textContent;
+    // });
+    // console.log(peopleArray);
 
-  // // const names = people.map(person => person.textContent);
+    // // const names = people.map(person => person.textContent);
 
-  function sumAll() {
-    const nums = Array.from(arguments);
-    return nums.reduce((prev, next) => prev + next, 0);
-  }
+    function sumAll() {
+      const nums = Array.from(arguments);
+      return nums.reduce((prev, next) => prev + next, 0);
+    }
 
-  sumAll(2, 34, 23, 234, 234, 234234, 234234, 2342);
+    sumAll(2, 34, 23, 234, 234, 234234, 234234, 2342);
 
+  // Array.of() creates an array from a set of arguments
   const ages = Array.of(12,4,23,62,34);
   console.log(ages);
 
