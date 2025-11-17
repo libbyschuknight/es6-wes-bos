@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Spread Examples</title>
 </head>
+
 <body>
   <div class="people">
     <p>Wes</p>
     <p>Kait</p>
     <p>Randy</p>
   </div>
-<script>
-  const people = Array.from(document.querySelectorAll('.people p'));
-  const names = people.map((person) => person.textContent );
+  <script>
+    // const people = document.querySelectorAll('.people p'); // cannot map over this, as it is a node list and doesn't have array methods on it like map
+    const people = Array.from(document.querySelectorAll('.people p')); // reads nicer
+    // console.log(people);
 
-  const deepDish = {
-    pizzaName: 'Deep Dish',
-    size: 'Medium',
-    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
-  };
+    // could use spread to do it
+    const people2 = [...document.querySelectorAll('.people p')];
+    // console.log(people2);
 
-  const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
-  // console.log(shoppingList);
+    const names = people.map((person) => person.textContent);
 
-  const comments = [
-    { id: 209384, text: 'I love your dog!' },
-    { id: 523423, text: 'Cuuute! 🐐' },
-    { id: 632429, text: 'You are so dumb' },
-    { id: 192834, text: 'Nice work on this wes!' },
-  ];
-  const id = 632429;
-  const commentIndex = comments.findIndex(comment => comment.id === id);
 
-  const newComments = [...comments.slice(0,commentIndex), ...comments.slice(commentIndex + 1)];
-  console.log(newComments);
+    const deepDish = {
+      pizzaName: 'Deep Dish',
+      size: 'Medium',
+      ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+    };
 
-</script>
+    const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients]; // true copy not a reference
+    // console.log(shoppingList);
+
+    const comments = [
+      { id: 209384, text: 'I love your dog!' },
+      { id: 523423, text: 'Cuuute! 🐐' },
+      { id: 632429, text: 'You are so dumb' },
+      { id: 192834, text: 'Nice work on this wes!' },
+    ];
+    const id = 632429;
+    const commentIndex = comments.findIndex(comment => comment.id === id);
+    // console.log(commentIndex);
+
+    console.log(comments);
+    console.log(...comments);
+
+
+    const newComments = [
+      ...comments.slice(0, commentIndex), // up to comment
+      ...comments.slice(commentIndex + 1) // after comment
+    ];
+    console.log(newComments);
+
+  </script>
 </body>
+
 </html>
