@@ -6,7 +6,11 @@
 </head>
 <body>
 <script>
-const postsPromise = fetch('https://wesbos.com/wp-json/wp/v2/posts');
+  console.log('going to fetch');
+
+  const postsPromise = fetch('https://jsonplaceholder.typicode.com/posts');
+  // console.log('done');
+  // console.log(postsPromise);
 
 postsPromise
   .then(data => data.json())
@@ -18,3 +22,22 @@ postsPromise
 </script>
 </body>
 </html>
+
+
+<!--
+1. promises are often used when fetching adjacent from an API and doing fetching work
+2. fetch returns a promise
+
+What is a promise?
+Is something that is going to be resolved in the future
+Is something that will happen between now and the end of time.
+something that will happen in the future but probably not immediately
+
+fetch - queues up the search, tries to fetch the post immedialty, it doesn't just store them in your posts variable right away, puts a promise, I don't have the data just yet, but here is an IOU, when they do come back, I will let you know
+
+
+then function will only run when the data cames back, when the promise is resolved
+.then - only comes back if the promise is successful
+
+catch - if something goes wrong, we can catch the error
+ -->
