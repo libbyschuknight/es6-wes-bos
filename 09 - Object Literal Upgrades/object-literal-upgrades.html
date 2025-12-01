@@ -12,8 +12,8 @@
   const breed = 'King Charles Cav';
   const dog = {
     firstName: first,
-    last,
-    age,
+    last: last,
+    age: age,
     breed,
     pals: ['Hugo', 'Sunny']
   };
@@ -26,11 +26,16 @@
     open(content) {
 
     },
+    // same as above
+    open: function() {
+
+    },
     close(goodbye) {
 
     }
   }
 
+  // computed property names
   function invertColor(color) {
       return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
   }
