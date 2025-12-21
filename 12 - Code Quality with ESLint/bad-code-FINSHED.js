@@ -32,7 +32,7 @@ Promise
 ga.track();
 twttr.trackConversion();
 
-/* eslint-disable */
+ 
 if (!Array.prototype.includes) {
   Array.prototype.includes = function(searchElement /*, fromIndex*/ ) {
     'use strict';
@@ -61,4 +61,4 @@ if (!Array.prototype.includes) {
     return false;
   };
 }
-/* eslint-enable */
+ 

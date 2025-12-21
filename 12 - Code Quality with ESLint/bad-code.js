@@ -1,12 +1,13 @@
+// yarn dlx eslint bad-code.js
 var weather = new Promise((resolve) => {
   setTimeout(() => {
-    resolve({ temp: 29, conditions: 'Sunny with Clouds' });
+    resolve({ temp: 29, conditions:'Sunny with Clouds' });
   }, 2000);
 });
 
 const tweets = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve(['I like cake', 'BBQ is good too!']);
+    resolve(["I like cake",'BBQ is good too!']);
   }, 500);
 });
 
