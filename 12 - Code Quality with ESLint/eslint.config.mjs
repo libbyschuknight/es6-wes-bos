@@ -16,7 +16,7 @@ export default defineConfig([
     },
     rules: {
       // Stricter rules similar to the ESLint playground
-      "no-console": "error",
+      "no-console": "warn",
       "no-unused-vars": "error",
       "no-undef": "error",
       "no-var": "error",
