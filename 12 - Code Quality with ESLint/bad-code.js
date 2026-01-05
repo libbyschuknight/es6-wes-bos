@@ -1,5 +1,7 @@
-// yarn dlx eslint bad-code.js
-var weather = new Promise((resolve) => {
+/* globals twttr ga */
+
+// npx eslint bad-code.js
+const weather = new Promise((resolve) => {
   setTimeout(() => {
     resolve({ temp: 29, conditions: 'Sunny with Clouds' });
   }, 2000);
@@ -15,7 +17,7 @@ Promise
   .all([weather, tweets])
   .then(responses => {
     const [weatherInfo, tweetInfo] = responses;
-    console.log(weatherInfo, tweetInfo);
+    console.log(weatherInfo, tweetInfo); // eslint-disable-line no-console
   });
 
 const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
@@ -29,3 +31,6 @@ Promise
   .then(responses => {
     console.log(responses);
   });
+
+ga.track();
+twttr.track();
