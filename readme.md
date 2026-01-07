@@ -17,5 +17,6 @@ You can now run `npm run lint` anytime to check your code, or `npm run lint -- -
 
 ```zsh
 npx eslint bad-code.js
+npx eslint code-in-html.html
 
 ```
