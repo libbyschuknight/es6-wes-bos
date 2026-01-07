@@ -20,3 +20,10 @@ npx eslint bad-code.js
 npx eslint code-in-html.html
 
 ```
+
+
+```js
+let age = 100;
+console.log(something)
+alert(age);
+```

@@ -1,20 +1,18 @@
 import js from "@eslint/js";
 import globals from "globals";
 import htmlPlugin from "eslint-plugin-html";
+import markdownPlugin from "@eslint/markdown";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"],
-    plugins: { js },
-    extends: ["js/recommended"],
-    languageOptions: { globals: globals.browser }
-  },
-  {
-    files: ["**/*.html"],
-    plugins: { html: htmlPlugin },
+    extends: [js.configs.recommended],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
       ecmaVersion: 2022,
       sourceType: "module",
     },
@@ -39,7 +37,25 @@ export default defineConfig([
       "no-unsafe-finally": "error",
       "constructor-super": "error",
       "getter-return": "error",
-      "valid-typeof": "error"
+      "valid-typeof": "error",
     },
+  },
+  {
+    files: ["**/*.html"],
+    plugins: { html: htmlPlugin },
+    languageOptions: {
+      globals: globals.browser,
+      ecmaVersion: 2022,
+      sourceType: "module",
+    },
+  },
+  {
+    files: ["**/*.md"],
+    plugins: { markdown: markdownPlugin },
+    processor: "markdown/markdown",
+  },
+  {
+    files: ["**/*.js"],
+    languageOptions: { sourceType: "commonjs" },
   },
 ]);
