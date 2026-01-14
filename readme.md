@@ -27,3 +27,16 @@ let age = 100;
 console.log(something)
 alert(age);
 ```
+
+
+To show if safe chain has run successfully.
+
+```zsh
+--save-dev --safe-chain-logging=verbose
+```
+
+To build your project with webpack, run:
+
+```zsh
+npm run build
+```
